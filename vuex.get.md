@@ -138,3 +138,43 @@ export default {
  - 然后通过`val.subscribe`注册回调函数，当`state`的值发生改变时及时更新
 
 因此，执行完`init`生命周期钩子后，组件中的`todos`的值就由`Cursor`对象实例变为对应的`state`的值，而且每当`state`中`todos`的值发送改变时，就会同步到组件的`data`成员中对应的子成员。而`data`成员的改动自有vue来动态更新页面中显示的内容。
+
+## 资源释放
+
+在组件`init`生命周期钩子，注册了监听state改变的回调函数，那么在组件销毁的时候也需要做反向处理：
+
+ - `vm.$watch`函数的返回值即`unwatch`函数，赋值给`Cursor`对象的成员变量
+
+```js
+  constructor (vm, path) {
+    this.dispose = vm.$watch(path, value => {...})
+  }
+```
+
+ - 将`Cursor`对象保存在组件的私有成员中
+
+```js
+      this.$options.data = () => {
+        const raw = dataFn()
+        Object.keys(raw).forEach(key => {
+          const val = raw[key]
+          if (val instanceof Cursor) {
+            if (!this._vue_store_cursors) {
+              this._vue_store_cursors = []
+            }
+            this._vue_store_cursors.push(val)
+          }
+        })
+        return raw
+      }
+```
+
+ - 在组件销毁的时候，调用`unwatch`函数
+
+```js
+  beforeDestroy () {
+    if (this._vue_store_cursors) {
+      this._vue_store_cursors.forEach(c => c.dispose())
+    }
+  }
+```
