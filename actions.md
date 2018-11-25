@@ -6,43 +6,31 @@
 
 ```js
 export default {
-  addTodo: 'ADD_TODO',
-  deleteTodo: 'DELETE_TODO',
-  toggleTodo: 'TOGGLE_TODO',
-  editTodo: 'EDIT_TODO',
-  toggleAll: 'TOGGLE_ALL',
   clearCompleted: 'CLEAR_COMPLETED'
 }
 ```
 
- - 在创建vuex的文件index.js中，引入actions.js，并注册到vuex中：
+ - 在创建vuex的文件index.js中，引入actions模块并注册到vuex中：
 
 ```js
 import actions from './actions'
 
 const vuex = new Vuex({
-  ...
   actions,
-  ...
 })
 ```
 
- - 在vuex的实现中，创建实际的action处理函数
+ - 在创建vuex对象时，通过action name创建对应的处理函数
 
 ```js
 export default class Vuex {
   constructor ({
-    ...
-    actions = {},
-    ...
+    actions = {}
   } = {}) {
-    ...
-    // create actions
     this.actions = Object.create(null)
     Object.keys(actions).forEach(name => {
       this.actions[name] = createAction(actions[name], this)
     })
-    ...
   }
 }
 
@@ -53,7 +41,7 @@ function createAction (action, vuex) {
 }
 ```
 
-注意这个时候，Vuex对象暴露出一个成员变量`this.actions`，变量的类型是一个对象，通过`name`来映射真正的action处理函数。
+注意这个时候，Vuex对象暴露出一个成员变量`this.actions`，变量的类型是一个对象，通过`name`来映射处理函数。
 
 ## 使用action
 
@@ -78,7 +66,7 @@ export default {
 }
 ```
 
-在创建vuex的时候，会`export`出生成的`vuex`实例，其中`vuex.actions`就是实例暴露出来的一个成员。
+在创建vuex的时候，会`export`出该`vuex`实例，其中`actions`就是实例暴露出来的一个成员。
 
 `const { clearCompleted } = vuex.actions`会解构出`clearCompleted`对应的处理函数，如果需要在vue的template中使用，还需要在vue组件实例的`methods`中进行一下映射：
 
@@ -126,31 +114,6 @@ export default class Vuex {
 
 ```js
 export default {
-  ADD_TODO (state, text) {
-    state.todos.unshift({
-      text: text,
-      done: false
-    })
-  },
-
-  DELETE_TODO (state, todo) {
-    state.todos.$remove(todo)
-  },
-
-  TOGGLE_TODO (state, todo) {
-    todo.done = !todo.done
-  },
-
-  EDIT_TODO (state, todo, text) {
-    todo.text = text
-  },
-
-  TOGGLE_ALL (state, done) {
-    state.todos.forEach((todo) => {
-      todo.done = done
-    })
-  },
-
   CLEAR_COMPLETED (state) {
     state.todos = state.todos.filter(todo => !todo.done)
   }
