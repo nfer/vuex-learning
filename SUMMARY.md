@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [actions](actions.md)
-* [vuex.get](vuex.get.md)
+* [0.0.1]()
+ * [actions](0.0.1/actions.md)
+ * [vuex.get](0.0.1/vuex.get.md)
 
