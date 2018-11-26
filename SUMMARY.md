@@ -10,4 +10,6 @@
  * [拆分 state 的 module](0.0.3/modules.md)
  * [function 类型的 action](0.0.3/action-function.md)
  * [数组 类型的 mutations](0.0.3/mutations.md)
+* [0.0.4](0.0.4/README.md)
+ * [多 mutation 处理函数](0.0.4/mutations.md)
 
