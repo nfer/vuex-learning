@@ -5,5 +5,5 @@
 主要的知识点有以下几个：
 
  - 拆分 state 的 module
- - action 的值为 function 的场景
- - mutations 的值为数组的场景
+ - function 类型的 action
+ - 数组 类型的 mutations

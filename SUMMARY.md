@@ -7,5 +7,7 @@
 * [0.0.2](0.0.2/README.md)
  * [middlewares](0.0.2/middlewares.md)
 * [0.0.3](0.0.3/README.md)
- * [modules](0.0.3/modules.md)
+ * [拆分 state 的 module](0.0.3/modules.md)
+ * [function 类型的 action](0.0.3/action-function.md)
+ * [数组 类型的 mutations](0.0.3/mutations.md)
 
