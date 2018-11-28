@@ -73,3 +73,54 @@ export const productsMutations = {
 ```
 
 在执行具体的 action 时，如果判断 mutation 类型是一个数组类型，则依次调用每一个 mutation ，因此在本示例中，会先将产品加入到购物车中，然后再在商品列表中减去对应的数量。
+
+## 参数对应关系
+
+在组件中使用 action 的时候，只传入了一个擦数：
+
+```js
+      if (product.inventory > 0) {
+        addToCart(product.id)
+      }
+```
+
+但在 vuex 中转了一层后，传到模块的 mutation 之后，就多了一个 state 参数：
+
+```js
+  dispatch (type, ...payload) {
+    const mutation = this._mutations[type]
+    if (mutation) {
+      if (Array.isArray(mutation)) {
+        mutation.forEach(m => m(this.state, ...payload))
+      } else {
+        mutation(this.state, ...payload)
+      }
+    }
+  }
+```
+
+在这个示例中，注意 products 和 cart 模块在处理 ADD_TO_CART action 时，第一个参数用了解构语法：
+
+ - products.js
+
+```js
+export const productsMutations = {
+  [ADD_TO_CART] ({ products }, productId) {
+    const product = products.find(p => p.id === productId)
+    ...
+  }
+}
+```
+
+ - cart.js
+
+```js
+export const productsMutations = {
+  [ADD_TO_CART] ({ cart }, productId) {
+    const record = cart.added.find(p => p.id === productId)
+    ...
+  }
+}
+```
+
+因为在模块内只关心当前模块的数据，所以使用解构语法直接获取当前关心的成员：`{ cart }`和`{ products }`。
