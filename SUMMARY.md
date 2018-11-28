@@ -12,4 +12,6 @@
  * [数组 类型的 mutations](0.0.3/mutations.md)
 * [0.0.4](0.0.4/README.md)
  * [多 mutation 处理函数](0.0.4/mutations.md)
+* [0.0.5](0.0.5/README.md)
+ * [checkout 操作](0.0.5/checkout.md)
 
