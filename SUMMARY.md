@@ -14,4 +14,6 @@
  * [多 mutation 处理函数](0.0.4/mutations.md)
 * [0.0.5](0.0.5/README.md)
  * [checkout 操作](0.0.5/checkout.md)
+* [0.0.6](0.0.6/README.md)
+ * [去掉 mixin 和 Cursor](0.0.6/computed.md)
 
