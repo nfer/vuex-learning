@@ -60,3 +60,45 @@ const state = {
 ```
 
 这样所有关于 localStorage 的操作全部封装在该模块中，整个功能和 vuex 主逻辑无强耦合。
+
+## vuex 源码中的处理
+
+vuex 首先定义了一个标准文件：src/middlewares/devtool.js
+
+```js
+export default {
+  onInit (state) {
+    // TODO
+  },
+  onMutation (mutation, state) {
+    // TODO
+  }
+}
+```
+
+在 vuex 构造函数中，进行 middlewares 合并，并依次调用`onInit`状态的钩子函数
+
+```js
+    // middlewares
+    this._middlewares = [devtoolMiddleware].concat(middlewares)
+    // call init hooks
+    this._middlewares.forEach(m => {
+      if (m.onInit) {
+        m.onInit(state)
+      }
+    })
+```
+
+当有 action 操作时，调用`onMutation`状态的钩子函数
+
+```js
+  dispatch (type, ...payload) {
+    const state = this.state
+      // invoke middlewares
+      this._middlewares.forEach(m => {
+        m.onMutation({ type, payload }, state)
+      })
+  }
+```
+
+可以看到，源码层面的改动很小，但是经过这样设计后，在使用 vuex 的时候会更清晰和易维护。
