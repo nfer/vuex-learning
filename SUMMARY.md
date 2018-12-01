@@ -16,4 +16,7 @@
  * [checkout 操作](0.0.5/checkout.md)
 * [0.0.6](0.0.6/README.md)
  * [去掉 mixin 和 Cursor](0.0.6/computed.md)
+* [0.0.7](0.0.7/README.md)
+ * [重构中间件](0.0.7/middlewares.md)
+ * [增加logger中间件](0.0.7/logger.md)
 
