@@ -14,6 +14,7 @@
   "author": "Nfer Zhuang <nfer.zhuang@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "gitbook-cli": "^2.3.2"
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-prism": "^2.4.0"
   }
 }

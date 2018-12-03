@@ -4,6 +4,8 @@
         "gitbook": false
     },
     "plugins": [
-        "-sharing"
+        "-sharing",
+        "-highlight",
+        "prism"
     ]
 }
