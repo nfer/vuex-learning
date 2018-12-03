@@ -1,0 +1,19 @@
+{
+  "name": "vuex-learning",
+  "version": "1.0.0",
+  "description": "vuex learning one-by-one",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gitbook serve",
+    "build": "gitbook build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vuex"
+  ],
+  "author": "Nfer Zhuang <nfer.zhuang@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
+}
