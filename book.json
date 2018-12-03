@@ -6,6 +6,12 @@
     "plugins": [
         "-sharing",
         "-highlight",
-        "prism"
-    ]
+        "prism",
+        "baidu-nfer"
+    ],
+    "pluginsConfig": {
+        "baidu-nfer": {
+            "token": "b4d1b826ed95a6867b8e7657c71aff4b"
+        }
+    }
 }
