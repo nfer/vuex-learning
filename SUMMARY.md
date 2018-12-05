@@ -20,4 +20,5 @@
  * [重构中间件](0.0.7/middlewares.md)
  * [增加logger中间件](0.0.7/logger.md)
 * [0.0.8](0.0.8/README.md)
+ * [支持HMR](0.0.8/hot-reload.md)
 
