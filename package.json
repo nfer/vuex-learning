@@ -15,7 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "gitbook-cli": "^2.3.2",
-    "gitbook-plugin-baidu-nfer": "^1.2.0",
+    "gitbook-plugin-baidu-nfer": "^1.3.0",
     "gitbook-plugin-prism": "^2.4.0"
   }
 }
