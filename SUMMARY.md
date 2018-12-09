@@ -21,4 +21,5 @@
  * [增加logger中间件](0.0.7/logger.md)
 * [0.0.8](0.0.8/README.md)
  * [支持HMR](0.0.8/hot-reload.md)
-
+* [0.0.9](0.0.9/README.md)
+ * [测试用例](0.0.9/test.md)
