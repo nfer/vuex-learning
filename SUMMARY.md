@@ -23,3 +23,4 @@
  * [支持HMR](0.0.8/hot-reload.md)
 * [0.0.9](0.0.9/README.md)
  * [测试用例](0.0.9/test.md)
+* [0.0.10 禁止 mutation 之外修改 state](0.0.10/README.md)
