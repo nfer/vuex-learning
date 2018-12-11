@@ -27,3 +27,4 @@
 * [0.0.11 chat example](0.0.11/README.md)
 * [0.0.12 bind dispatch to self](0.0.12/README.md)
 * [0.0.13 injection](0.0.13/README.md)
+* [0.0.14 getter](0.0.14/README.md)
