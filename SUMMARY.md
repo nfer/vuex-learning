@@ -26,3 +26,4 @@
 * [0.0.10 禁止 mutation 之外修改 state](0.0.10/README.md)
 * [0.0.11 chat example](0.0.11/README.md)
 * [0.0.12 bind dispatch to self](0.0.12/README.md)
+* [0.0.13 injection](0.0.13/README.md)
